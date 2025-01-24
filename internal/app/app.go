@@ -11,7 +11,7 @@ import (
 	"github.com/Fyefhqdishka/LocFinder/internal/storage/repositories"
 	"github.com/Fyefhqdishka/LocFinder/pkg/routes"
 	"github.com/gorilla/mux"
-
+	"github.com/rs/cors"
 	"log/slog"
 	"net/http"
 	"os"
@@ -75,6 +75,11 @@ func New(cfg *config.Config) (*App, error) {
 	locHandler := handlers.NewLocHandler(locService, log)
 
 	r := mux.NewRouter()
+	corsHandler := cors.New(cors.Options{
+		AllowedOrigins: []string{"http://localhost:5173"},
+		AllowedMethods: []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
+		AllowedHeaders: []string{"Content-Type", "Authorization"},
+	}).Handler(r)
 	routes.RegisterRoutes(r, *locHandler)
 
 	addr := fmt.Sprintf("%s:%s", cfg.Server.Host, cfg.Server.Port)
@@ -85,7 +90,7 @@ func New(cfg *config.Config) (*App, error) {
 		db: db,
 		server: &http.Server{
 			Addr:         addr,
-			Handler:      r,
+			Handler:      corsHandler,
 			WriteTimeout: cfg.Server.Timeout,
 			ReadTimeout:  cfg.Server.Timeout,
 			IdleTimeout:  cfg.Server.IdleTimeout,

@@ -7,14 +7,12 @@ import (
 )
 
 type LocRepository struct {
-	db  *sql.DB
-	log *slog.Logger
+	db *sql.DB
 }
 
 func NewLocRepository(db *sql.DB, log *slog.Logger) *LocRepository {
 	return &LocRepository{
-		db:  db,
-		log: log,
+		db: db,
 	}
 }
 

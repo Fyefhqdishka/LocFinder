@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"encoding/json"
 	"errors"
+	"fmt"
 	"github.com/Fyefhqdishka/LocFinder/internal/models"
 	"github.com/Fyefhqdishka/LocFinder/internal/storage/repositoryInterfaces"
 	"io/ioutil"
@@ -13,10 +14,11 @@ import (
 
 type ServiceInterface interface {
 	GetLocationByIP(ip string) (*models.IPLocation, error)
-	fetchFromAPI(ip string) (models.IPLocation, error)
 	UpdateLocation(ip, country, city string) error
 	DeleteLocation(ip string) error
 	GetAllLocations() ([]models.IPLocation, error)
+	GetExternalIP() (string, error)
+	fetchFromAPI(ip string) (models.IPLocation, error)
 }
 
 type LocService struct {
@@ -26,6 +28,21 @@ type LocService struct {
 
 func NewLocService(repo repositoryInterfaces.Storage, log *slog.Logger) *LocService {
 	return &LocService{repo: repo, log: log}
+}
+
+func (s *LocService) GetExternalIP() (string, error) {
+	resp, err := http.Get("https://api.ipify.org")
+	if err != nil {
+		return "", fmt.Errorf("could not get external IP: %v", err)
+	}
+	defer resp.Body.Close()
+
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		return "", fmt.Errorf("could not read response body: %v", err)
+	}
+
+	return string(body), nil
 }
 
 func (s *LocService) GetLocationByIP(ip string) (*models.IPLocation, error) {

@@ -1,0 +1,5 @@
+time=2025-01-25T00:50:39.782+05:00 level=INFO msg="server starting in port" !BADKEY=8000
+time=2025-01-25T00:52:05.197+05:00 level=INFO msg="server starting in port" !BADKEY=8000
+time=2025-01-25T00:52:25.036+05:00 level=DEBUG msg="Ответ от API" body="{\"status\":\"success\",\"country\":\"Kazakhstan\",\"countryCode\":\"KZ\",\"region\":\"75\",\"regionName\":\"Almaty\",\"city\":\"Almaty\",\"zip\":\"\",\"lat\":43.2433,\"lon\":76.8646,\"timezone\":\"Asia/Almaty\",\"isp\":\"2DAY Telecom LLP\",\"org\":\"\",\"as\":\"AS21299 Kar-Tel LLC\",\"query\":\"37.99.85.84\"}"
+time=2025-01-25T00:52:25.051+05:00 level=DEBUG msg="Локация сохранена в базе" ip=37.99.85.84 location="{IP:37.99.85.84 Country:Kazakhstan City:Almaty}"
+time=2025-01-25T00:52:25.141+05:00 level=DEBUG msg="Ответ от API" body="{\"status\":\"success\",\"country\":\"Kazakhstan\",\"countryCode\":\"KZ\",\"region\":\"75\",\"regionName\":\"Almaty\",\"city\":\"Almaty\",\"zip\":\"\",\"lat\":43.2433,\"lon\":76.8646,\"timezone\":\"Asia/Almaty\",\"isp\":\"2DAY Telecom LLP\",\"org\":\"\",\"as\":\"AS21299 Kar-Tel LLC\",\"query\":\"37.99.85.84\"}"
