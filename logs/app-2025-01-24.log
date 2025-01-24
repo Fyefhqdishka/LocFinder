@@ -1,0 +1,5 @@
+time=2025-01-24T22:38:00.700+05:00 level=INFO msg="server starting in port" !BADKEY=8000
+time=2025-01-24T22:38:12.972+05:00 level=DEBUG msg="Получены все локации" count=5
+time=2025-01-24T17:44:56.337Z level=INFO msg="server starting in port" !BADKEY=8000
+time=2025-01-24T17:45:07.701Z level=DEBUG msg="Ответ от API" body="{\"status\":\"success\",\"country\":\"Kazakhstan\",\"countryCode\":\"KZ\",\"region\":\"75\",\"regionName\":\"Almaty\",\"city\":\"Almaty\",\"zip\":\"\",\"lat\":43.2433,\"lon\":76.8646,\"timezone\":\"Asia/Almaty\",\"isp\":\"2DAY Telecom LLP\",\"org\":\"\",\"as\":\"AS21299 Kar-Tel LLC\",\"query\":\"37.99.41.30\"}"
+time=2025-01-24T17:45:07.704Z level=DEBUG msg="Локация сохранена в базе" ip=37.99.41.30 location="{IP:37.99.41.30 Country:Kazakhstan City:Almaty}"
