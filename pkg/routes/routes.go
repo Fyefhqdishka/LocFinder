@@ -3,10 +3,21 @@ package routes
 import (
 	"github.com/Fyefhqdishka/LocFinder/internal/handlers"
 	"github.com/gorilla/mux"
+	"github.com/rs/cors"
+	"net/http"
 )
 
-func RegisterRoutes(r *mux.Router, h handlers.LocHandler) {
+func RegisterRoutes(r *mux.Router, h handlers.LocHandler) http.Handler {
 	LocRoutes(r, h)
+
+	corsHandler := cors.New(cors.Options{
+		AllowedOrigins:   []string{"*"},
+		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
+		AllowedHeaders:   []string{"Content-Type", "Authorization"},
+		AllowCredentials: true,
+	}).Handler(r)
+
+	return corsHandler
 }
 
 func LocRoutes(r *mux.Router, h handlers.LocHandler) {

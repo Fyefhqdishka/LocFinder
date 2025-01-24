@@ -54,33 +54,6 @@ func (s *LocService) GetLocationByIP(ip string) (*models.IPLocation, error) {
 	return &location, nil
 }
 
-func (s *LocService) fetchFromAPI(ip string) (models.IPLocation, error) {
-	apiURL := "http://ip-api.com/json/" + ip
-	resp, err := http.Get(apiURL)
-	if err != nil {
-		return models.IPLocation{}, err
-	}
-	defer resp.Body.Close()
-
-	body, err := ioutil.ReadAll(resp.Body)
-	if err != nil {
-		return models.IPLocation{}, err
-	}
-
-	s.log.Debug("Ответ от API", "body", string(body))
-
-	if resp.StatusCode != http.StatusOK {
-		return models.IPLocation{}, errors.New("некорректный ответ от API: " + resp.Status)
-	}
-
-	var location models.IPLocation
-	if err := json.Unmarshal(body, &location); err != nil {
-		return models.IPLocation{}, err
-	}
-
-	return location, nil
-}
-
 func (s *LocService) UpdateLocation(ip, country, city string) error {
 	err := s.repo.Update(ip, country, city)
 	if err != nil {
@@ -109,4 +82,31 @@ func (s *LocService) GetAllLocations() ([]models.IPLocation, error) {
 	}
 	s.log.Debug("Получены все локации", "count", len(locations))
 	return locations, nil
+}
+
+func (s *LocService) fetchFromAPI(ip string) (models.IPLocation, error) {
+	apiURL := "http://ip-api.com/json/" + ip
+	resp, err := http.Get(apiURL)
+	if err != nil {
+		return models.IPLocation{}, err
+	}
+	defer resp.Body.Close()
+
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		return models.IPLocation{}, err
+	}
+
+	s.log.Debug("Ответ от API", "body", string(body))
+
+	if resp.StatusCode != http.StatusOK {
+		return models.IPLocation{}, errors.New("некорректный ответ от API: " + resp.Status)
+	}
+
+	var location models.IPLocation
+	if err := json.Unmarshal(body, &location); err != nil {
+		return models.IPLocation{}, err
+	}
+
+	return location, nil
 }

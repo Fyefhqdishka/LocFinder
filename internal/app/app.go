@@ -21,6 +21,7 @@ import (
 type App struct {
 	db     *sql.DB
 	server *http.Server
+	log    *slog.Logger
 }
 
 func (s *App) Run() error {
@@ -69,14 +70,12 @@ func New(cfg *config.Config) (*App, error) {
 
 	log := initLogging()
 
-	storage := repositories.NewLocRepository(db, log)
-
-	service := service.NewLocService(storage, log)
-
-	h := *handlers.NewLocHandler(service, log)
+	locRepo := repositories.NewLocRepository(db, log)
+	locService := service.NewLocService(locRepo, log)
+	locHandler := handlers.NewLocHandler(locService, log)
 
 	r := mux.NewRouter()
-	routes.RegisterRoutes(r, h)
+	routes.RegisterRoutes(r, *locHandler)
 
 	addr := fmt.Sprintf("%s:%s", cfg.Server.Host, cfg.Server.Port)
 
