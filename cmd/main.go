@@ -8,7 +8,6 @@ import (
 	"log"
 	"os"
 	"os/signal"
-	"sync"
 	"syscall"
 )
 
@@ -42,26 +41,4 @@ func init() {
 	if err := godotenv.Load(); err != nil {
 		log.Fatalf("can't load env file, err=%v", err)
 	}
-}
-
-func JoinChannels(s ...<-chan int) <-chan int {
-	wg := &sync.WaitGroup{}
-	result := make(chan int)
-
-	wg.Add(len(s))
-	for _, ch := range s {
-		go func(c <-chan int) {
-			defer wg.Done()
-			for v := range c {
-				result <- v
-			}
-		}(ch)
-	}
-
-	go func() {
-		wg.Wait()
-		close(result)
-	}()
-
-	return result
 }

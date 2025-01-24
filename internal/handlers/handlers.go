@@ -51,15 +51,18 @@ func (h *LocHandler) GetLocationForProvidedIP(w http.ResponseWriter, r *http.Req
 }
 
 func (h *LocHandler) UpdateLocation(w http.ResponseWriter, r *http.Request) {
-	ip := mux.Vars(r)["ip"]
-
 	var location models.IPLocation
 	if err := json.NewDecoder(r.Body).Decode(&location); err != nil {
 		h.response(w, SendError("Invalid request body"), http.StatusBadRequest)
 		return
 	}
 
-	err := h.Service.UpdateLocation(ip, location.Country, location.City)
+	if location.IP == "" {
+		h.response(w, SendError("IP address is required"), http.StatusBadRequest)
+		return
+	}
+
+	err := h.Service.UpdateLocation(location.IP, location.Country, location.City)
 	if err != nil {
 		h.response(w, SendError("Can't update location: "+err.Error()), http.StatusInternalServerError)
 		return

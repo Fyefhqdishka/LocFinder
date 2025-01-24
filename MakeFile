@@ -5,3 +5,6 @@ down:
 	docker-compose down
 
 restart: down up
+
+run-tests:
+	go test -v ./internal/handlers ./internal/service
