@@ -33,6 +33,19 @@ services:
     volumes:
       - ./logs:/logs
 
+  ui:
+    build:
+      context: ./internal/ui
+      dockerfile: Dockerfile
+    container_name: react-ui
+    ports:
+      - 5173:80
+    networks:
+      - appnet
+    depends_on:
+      app:
+        condition: service_started
+
 networks:
   appnet:
     driver: bridge

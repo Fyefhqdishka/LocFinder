@@ -18,3 +18,22 @@ time=2025-01-24T19:51:33.614Z level=DEBUG msg="Локация сохранена
 time=2025-01-24T19:58:15.600Z level=INFO msg="server starting in port" !BADKEY=8000
 time=2025-01-24T19:58:19.639Z level=DEBUG msg="Ответ от API" body="{\"status\":\"success\",\"country\":\"Kazakhstan\",\"countryCode\":\"KZ\",\"region\":\"75\",\"regionName\":\"Almaty\",\"city\":\"Almaty\",\"zip\":\"\",\"lat\":43.2433,\"lon\":76.8646,\"timezone\":\"Asia/Almaty\",\"isp\":\"2DAY Telecom LLP\",\"org\":\"\",\"as\":\"AS21299 Kar-Tel LLC\",\"query\":\"37.99.85.84\"}"
 time=2025-01-24T19:58:19.648Z level=DEBUG msg="Локация сохранена в базе" ip=37.99.85.84 location="{IP:37.99.85.84 Country:Kazakhstan City:Almaty}"
+time=2025-01-24T20:18:46.690Z level=DEBUG msg="Ответ от API" body="{\"status\":\"success\",\"country\":\"Kazakhstan\",\"countryCode\":\"KZ\",\"region\":\"75\",\"regionName\":\"Almaty\",\"city\":\"Almaty\",\"zip\":\"\",\"lat\":43.2433,\"lon\":76.8646,\"timezone\":\"Asia/Almaty\",\"isp\":\"2DAY Telecom LLP\",\"org\":\"\",\"as\":\"AS21299 Kar-Tel LLC\",\"query\":\"37.99.42.212\"}"
+time=2025-01-24T20:18:46.700Z level=DEBUG msg="Локация сохранена в базе" ip=37.99.42.212 location="{IP:37.99.42.212 Country:Kazakhstan City:Almaty}"
+time=2025-01-24T20:18:59.944Z level=DEBUG msg="Ответ от API" body="{\"status\":\"success\",\"country\":\"United States\",\"countryCode\":\"US\",\"region\":\"NY\",\"regionName\":\"New York\",\"city\":\"New York\",\"zip\":\"10123\",\"lat\":40.7128,\"lon\":-74.006,\"timezone\":\"America/New_York\",\"isp\":\"AT\\u0026T Services, Inc.\",\"org\":\"AT\\u0026T Global Network Services, LLC\",\"as\":\"AS7018 AT\\u0026T Services, Inc.\",\"query\":\"32.99.42.212\"}"
+time=2025-01-24T20:18:59.967Z level=DEBUG msg="Локация сохранена в базе" ip=32.99.42.212 location="{IP:32.99.42.212 Country:United States City:New York}"
+time=2025-01-24T20:31:55.120Z level=DEBUG msg="Получены все локации" count=3
+time=2025-01-24T20:38:07.877Z level=DEBUG msg="Получены все локации" count=3
+time=2025-01-24T21:10:48.917Z level=DEBUG msg="Получены все локации" count=3
+time=2025-01-24T21:21:44.562Z level=DEBUG msg="Получены все локации" count=3
+time=2025-01-24T21:21:49.889Z level=DEBUG msg="Получены все локации" count=3
+time=2025-01-24T23:04:07.516Z level=INFO msg="server starting in port" !BADKEY=8000
+time=2025-01-24T23:04:15.825Z level=DEBUG msg="Ответ от API" body="{\"status\":\"success\",\"country\":\"Kazakhstan\",\"countryCode\":\"KZ\",\"region\":\"75\",\"regionName\":\"Almaty\",\"city\":\"Almaty\",\"zip\":\"\",\"lat\":43.2433,\"lon\":76.8646,\"timezone\":\"Asia/Almaty\",\"isp\":\"2DAY Telecom LLP\",\"org\":\"\",\"as\":\"AS21299 Kar-Tel LLC\",\"query\":\"37.99.42.212\"}"
+time=2025-01-24T23:04:15.839Z level=DEBUG msg="Локация сохранена в базе" ip=37.99.42.212 location="{IP:37.99.42.212 Country:Kazakhstan City:Almaty}"
+time=2025-01-24T23:04:40.809Z level=DEBUG msg="Получены все локации" count=1
+time=2025-01-24T23:05:02.504Z level=DEBUG msg="Получены все локации" count=1
+time=2025-01-24T23:05:08.006Z level=DEBUG msg="Ответ от API" body="{\"status\":\"success\",\"country\":\"United States\",\"countryCode\":\"US\",\"region\":\"NY\",\"regionName\":\"New York\",\"city\":\"New York\",\"zip\":\"10123\",\"lat\":40.7128,\"lon\":-74.006,\"timezone\":\"America/New_York\",\"isp\":\"AT\\u0026T Services, Inc.\",\"org\":\"AT\\u0026T Global Network Services, LLC\",\"as\":\"AS7018 AT\\u0026T Services, Inc.\",\"query\":\"32.99.42.212\"}"
+time=2025-01-24T23:05:08.008Z level=DEBUG msg="Локация сохранена в базе" ip=32.99.42.212 location="{IP:32.99.42.212 Country:United States City:New York}"
+time=2025-01-24T23:05:11.565Z level=DEBUG msg="Получены все локации" count=2
+time=2025-01-24T23:05:11.879Z level=DEBUG msg="Получены все локации" count=2
+time=2025-01-24T23:05:17.081Z level=DEBUG msg="Получены все локации" count=2

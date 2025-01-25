@@ -1,0 +1,70 @@
+.mainPage {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+section {
+    margin-top: 20px;
+    padding: 10px;
+    width: 80%;
+    height: auto;
+    border: none;
+    background-color: #646cff;
+}
+
+input {
+    color: #6f6f6f;
+    width: 200px;
+    padding: 0.6rem;
+    background-color: azure;
+    border: none;
+    border-radius: 8px;
+}
+
+input:focus {
+    color: rgb(37, 36, 36); /* Белый цвет текста при фокусе */
+}
+
+.searchBtn{
+    margin-left: 30px;
+}
+
+
+.location {
+    border-left: 2px solid #383839;
+    padding-left: 20px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li{
+
+}
+
+pre {
+    text-align: start;
+    width: 50%;
+}
+
+.show {
+    height: auto;
+}
+
+.nope {
+    height: 60px;
+
+.locations{
+        opacity: 0;
+    }
+}
+
+
+.buttons button{
+    margin-right: 30px;
+}
