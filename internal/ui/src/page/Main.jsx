@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "../page/Main.module.css";
+import { AiFillCaretDown } from "react-icons/ai";
 
 const Main = () => {
     const [address, setAddress] = useState("");
@@ -115,7 +116,9 @@ const Main = () => {
             <section className={`${isOpen ? styles.show : styles.nope}`}>
                 <div className={styles.buttons}>
                     <button onClick={fetchLocations}>Show All Locations</button>
-                    <button onClick={()=> setIsOpen(!isOpen)}></button>
+                    <button onClick={()=> setIsOpen(!isOpen)}>
+                        <AiFillCaretDown />
+                    </button>
                 </div>
                 <div className={styles.locations}>
                     {locations.length > 0 && (
